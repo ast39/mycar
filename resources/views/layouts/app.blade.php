@@ -123,7 +123,7 @@
             <div class="row mt-3">
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <h6 class="text-uppercase fw-bold mb-4">
-                        MyMoto
+                        MyCar
                     </h6>
                     <p>
                         Это персональное приложение для ведения истории автомобиля, разработанное как PWA

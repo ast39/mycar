@@ -88,7 +88,7 @@
 
                         {{-- История обслуживания автомобиля --}}
                         <div class="accordion">
-                            <div class="accordion-item mt-3">
+                            <div class="accordion-item mt-3 border-0">
                                 <h2 class="accordion-header shadow-sm" id="panelsStayOpen-headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                                         {{ __('История обслуживания') }}
@@ -96,9 +96,9 @@
                                 </h2>
 
                                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                                    <div class="accordion-body">
+                                    <div class="accordion-body p-0">
                                         <table class="table table-bordered admin-table__adapt admin-table__instrument">
-                                            <thead>
+                                            <thead class="table-secondary">
                                             <tr>
                                                 <th class="text-start">Дата</th>
                                                 <th class="text-start">Название</th>
@@ -147,7 +147,7 @@
 
                         {{-- Запчасти на автомобиль --}}
                         <div class="accordion">
-                            <div class="accordion-item mt-3">
+                            <div class="accordion-item mt-3 border-0">
                                 <h2 class="accordion-header shadow-sm" id="panelsStayOpen-headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                                         {{ __('Запчасти') }}
@@ -155,9 +155,9 @@
                                 </h2>
 
                                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                                    <div class="accordion-body">
+                                    <div class="accordion-body p-0">
                                         <table class="table table-bordered admin-table__adapt admin-table__instrument">
-                                            <thead>
+                                            <thead class="table-secondary">
                                             <tr>
                                                 <th class="text-start">Заголовок</th>
                                                 <th class="text-center">Артикул</th>
@@ -202,7 +202,7 @@
 
                         {{-- Заметки об автомобиле --}}
                         <div class="accordion">
-                            <div class="accordion-item mt-3">
+                            <div class="accordion-item mt-3 border-0">
                                 <h2 class="accordion-header shadow-sm" id="panelsStayOpen-headingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
                                         {{ __('Заметки') }}
@@ -210,9 +210,9 @@
                                 </h2>
 
                                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-                                    <div class="accordion-body">
+                                    <div class="accordion-body p-0">
                                         <table class="table table-bordered admin-table__adapt admin-table__instrument">
-                                            <thead>
+                                            <thead class="table-secondary">
                                             <tr>
                                                 <th class="text-start">Дата</th>
                                                 <th class="text-start">Заголовок</th>
