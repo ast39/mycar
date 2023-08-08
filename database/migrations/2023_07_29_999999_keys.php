@@ -53,6 +53,17 @@ return new class extends Migration
                 ->references('car_id')
                 ->on('cars');
         });
+
+        Schema::table('gas', function(Blueprint $table) {
+
+            $table->foreign('client_id', 'gas_client_key')
+                ->references('id')
+                ->on('users');
+
+            $table->foreign('car_id', 'gas_car_key')
+                ->references('car_id')
+                ->on('cars');
+        });
     }
 
     /**
@@ -77,6 +88,11 @@ return new class extends Migration
         Schema::table('notes', function(Blueprint $table) {
             $table->dropForeign('note_client_key');
             $table->dropForeign('note_car_key');
+        });
+
+        Schema::table('gas', function(Blueprint $table) {
+            $table->dropForeign('gas_client_key');
+            $table->dropForeign('gas_car_key');
         });
     }
 };

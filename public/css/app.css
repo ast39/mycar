@@ -46,7 +46,7 @@
 html, body{min-height: 100vh;}
 
 input[type="date"]::-webkit-inner-spin-button,
-/*input[type="date"]::-webkit-calendar-picker-indicator {display: none; -webkit-appearance: none;}*/
+    /*input[type="date"]::-webkit-calendar-picker-indicator {display: none; -webkit-appearance: none;}*/
 
 .newdesign{min-height:67vh; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-align-items: center; -ms-flex-align: center; align-items: center;}
 .newdesign-nav{background-color: #86aecc !important;}
@@ -94,6 +94,8 @@ textarea.form-control.height{height: 80px;}
 .newdesign .btn-danger{color: #000; background-color: #ffaaaa; border-color: #ffaaaa;}
 .newdesign .btn{border-radius: 7px !important;}
 .newdesign a.text-primary{color: #86AFCB !important;}
+.newdesign .nav-item button.nav-link{color: #86AFCB !important;}
+.newdesign .nav-item button.active{color: #fff !important; background: #9abfdb !important; border-color: #86AFCB !important;}
 
 .newdesign .text-success{color: #87b568 !important;}
 .newdesign .text-warning{color: #ffda96 !important;}

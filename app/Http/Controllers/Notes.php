@@ -66,6 +66,9 @@ class Notes extends Controller {
         $data = $request->validated();
 
         $data['client_id'] = Auth::id();
+        if (!is_null($data['note_date'] ?: null)) {
+            $data['created_at'] = strtotime($data['note_date']);
+        }
 
         return redirect()->route('note.show', Note::create($data)->note_id);
     }
@@ -114,6 +117,10 @@ class Notes extends Controller {
     public function update(NoteUpdateRequest $request, int $id): RedirectResponse
     {
         $data = $request->validated();
+
+        if (!is_null($data['note_date'] ?: null)) {
+            $data['created_at'] = strtotime($data['note_date']);
+        }
 
         $note = Note::find($id);
 

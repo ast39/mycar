@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\Gasoline;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -69,6 +70,18 @@ Route::group(['prefix' => 'articles', 'middleware' => ['auth']], function () {
     Route::get('{id}/edit', [Articles::class, 'edit'])->name('article.edit');
     Route::put('{id}', [Articles::class, 'update'])->name('article.update');
     Route::delete('{id}', [Articles::class, 'destroy'])->name('article.destroy');
+});
+
+# Раздел заправок
+Route::group(['prefix' => 'gas', 'middleware' => ['auth']], function () {
+
+    Route::get('', [Gasoline::class, 'index'])->name('gas.index');
+    Route::get('create', [Gasoline::class, 'create'])->name('gas.create');
+    Route::post('', [Gasoline::class, 'store'])->name('gas.store');
+    Route::get('{id}', [Gasoline::class, 'show'])->name('gas.show');
+    Route::get('{id}/edit', [Gasoline::class, 'edit'])->name('gas.edit');
+    Route::put('{id}', [Gasoline::class, 'update'])->name('gas.update');
+    Route::delete('{id}', [Gasoline::class, 'destroy'])->name('gas.destroy');
 });
 
 # Раздел заметок

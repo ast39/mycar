@@ -9,11 +9,11 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
+            <div class="col-md-12">
+                <div class="card bg-primary text-white">
                     <div class="card-header">{{ __('Редактирование заметки') }}</div>
 
-                    <div class="card-body">
+                    <div class="card-body bg-light">
 
                         <form method="post" action="{{ route('note.update', $note->note_id) }}">
                             @csrf
@@ -28,6 +28,11 @@
                                         <option title="Нет автомобилей" value="0">Нет автомобилей</option>
                                     @endforelse
                                 </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="note_date" class="form-label">{{ __('Дата заметки') }}</label>
+                                <input type="date" class="form-control" id="note_date" name="note_date" value="{{ date('Y-m-d', $note->created_at ?? time()) }}" />
                             </div>
 
                             <div class="mb-3">

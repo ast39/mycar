@@ -9,23 +9,23 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
+            <div class="col-md-12">
+                <div class="card bg-primary text-white">
                     <div class="card-header">{{ __('Редактирование профиля') }}</div>
 
-                    <div class="card-body">
+                    <div class="card-body bg-light">
 
-                        <form method="post" action="{{ route('client.update', $client->id) }}">
+                        <form method="post" action="{{ route('client.update') }}">
                             @csrf
                             @method('PUT')
 
                             <div class="mb-3">
-                                <label for="name" class="form-label">{{ __('Имя') }}</label>
+                                <label for="name" class="form-label required">{{ __('Имя') }}</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ $client->name ?? '' }}" />
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">{{ __('Логин') }}</label>
+                                <label for="email" class="form-label required">{{ __('Логин') }}</label>
                                 <input type="text" class="form-control" id="email" name="email" value="{{ $client->email ?? '' }}" />
                             </div>
 

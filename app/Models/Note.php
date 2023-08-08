@@ -36,7 +36,7 @@ class Note extends Model {
     }
 
     /**
-     * Байк
+     * Машина
      *
      * @return BelongsTo
      */

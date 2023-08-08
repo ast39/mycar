@@ -2,7 +2,7 @@
     use App\Libs\Helper;
 @endphp
 
-<form method="get" action="{{ route('article.index') }}" data-filterline__sandwich>
+<form method="get" action="{{ route('gas.index') }}" data-filterline__sandwich>
     <div class="mmot-filterline__sandwich dselect-wrapper" data-filterline_sandwich_parent="filter_planing">
         <div class="mmot-filterline__sandwich__head form-select">Настройки фильтра</div>
     </div>
@@ -21,18 +21,18 @@
                 </div>
 
                 <div class="mmot-filterline__one" data-input_clear_content>
-                    <input type="text" name="title" id="title" class="form-control" value="{{ request('title') }}" placeholder="{{ __('Название') }}" data-input_clear>
+                    <input type="date" name="period_from" id="period_from" class="form-control" value="{{ request('period_from') }}" placeholder="{{ __('Период от') }}" data-input_clear>
                 </div>
 
                 <div class="mmot-filterline__one" data-input_clear_content>
-                    <input type="text" name="article" id="article" class="form-control" value="{{ request('article') }}" placeholder="{{ __('Артикул') }}" data-input_clear>
+                    <input type="date" name="period_to" id="period_to" class="form-control" value="{{ request('period_to') }}" placeholder="{{ __('Период до') }}" data-input_clear>
                 </div>
             </div>
         </div>
 
         <div class="mmot-filterline">
             <div class="mmot-filterline__one">
-                <a href="{{ route('article.index') }}" type="button" class="btn btn-secondary w block">{{ __('Сбросить') }}</a>
+                <a href="{{ route('gas.index') }}" type="button" class="btn btn-secondary w block">{{ __('Сбросить') }}</a>
             </div>
 
             <div class="mmot-filterline__one">

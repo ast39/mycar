@@ -10,7 +10,7 @@ class Helper {
     /**
      * Полное наименование автомобиля
      *
-     * @param object|array $bike_data
+     * @param object|array $car_data
      * @param bool $year
      * @return string
      */
@@ -72,13 +72,43 @@ class Helper {
     }
 
     /**
+     * Год автомобиля
+     *
+     * @param int|null $year
+     * @return string
+     */
+    public static function year(?int $year): string
+    {
+        if (is_null($year)) {
+            return ' - ';
+        }
+
+        return $year . ' г/в';
+    }
+
+    /**
+     * Объем заправки в литрах
+     *
+     * @param float|null $gas
+     * @return string
+     */
+    public static function liters(?float $gas): string
+    {
+        if (is_null($gas)) {
+            return ' - ';
+        }
+
+        return number_format($gas, 2, '.', ' ') . ' л.';
+    }
+
+    /**
      * Стоимость
      *
      * @param float|null $price
      * @param bool $float
      * @return string
      */
-    public static function price(?float $price, $float = false): string
+    public static function price(?float $price, bool $float = false): string
     {
         if (is_null($price)) {
             return ' - ';

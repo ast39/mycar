@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Article extends Model {
+class Gas extends Model {
 
     use HasFactory, Filterable, SoftDeletes;
 
 
-    protected $table      = 'articles';
+    protected $table      = 'gas';
 
-    protected $primaryKey = 'article_id';
+    protected $primaryKey = 'record_id';
 
     protected $keyType    = 'int';
 
@@ -57,7 +57,7 @@ class Article extends Model {
     ];
 
     protected $fillable = [
-        'article_id', 'client_id', 'car_id', 'article', 'title', 'price', 'additional',
+        'record_id', 'client_id', 'car_id', 'gas_station', 'mileage', 'volume', 'price', 'additional',
         'created_at', 'updated_at',
     ];
 

@@ -1,8 +1,4 @@
-@php
-    //
-@endphp
-
-    <!doctype html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -64,6 +60,10 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('article.index') }}">{{ __('Запчасти') }}</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('gas.index') }}">{{ __('Заправки') }}</a>
                         </li>
 
                         <li class="nav-item">
@@ -133,16 +133,6 @@
                     </p>
                 </div>
 
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Доступные модули
-                    </h6>
-                    <p>Мой гараж</p>
-                    <p>История обслуживания</p>
-                    <p>Каталог запчастей</p>
-                    <p>Блокнот</p>
-                </div>
-
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <h6 class="text-uppercase fw-bold mb-4">
                         О хранении данных
@@ -154,9 +144,9 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <h6 class="text-uppercase fw-bold mb-4">Контакты</h6>
                     <p><i class="fas fa-home me-3">Адрес: </i> Россия, Калининград, 236048</p>
-                    <p><i class="fas fa-envelope me-3">Email:</i> alexandr.status@gmail.com</p>
+                    <p><i class="fas fa-envelope me-3">Email:</i> alexandr.statut@gmail.com</p>
                     <p><i class="fas fa-phone me-3">Тел.:</i> +7 911 487 7251</p>
-                    <p><i class="fas fa-phone me-3">Trlrgram:</i> <a target="_blank" href="https://t.me/ASt39">@ASt39</a></p>
+                    <p><i class="fas fa-phone me-3">Telegram:</i> <a target="_blank" href="https://t.me/ASt39">@ASt39</a></p>
                 </div>
             </div>
         </div>

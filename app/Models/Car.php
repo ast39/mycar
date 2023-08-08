@@ -27,7 +27,7 @@ class Car extends Model {
 
 
     /**
-     * Владелец байка
+     * Владелец
      *
      * @return BelongsTo
      */
@@ -37,7 +37,7 @@ class Car extends Model {
     }
 
     /**
-     * Производитель байка
+     * Производитель
      *
      * @return BelongsTo
      */
@@ -58,7 +58,7 @@ class Car extends Model {
     }
 
     /**
-     * Каталог запчастей на байк
+     * Каталог запчастей
      *
      * @return HasMany
      */
@@ -69,7 +69,18 @@ class Car extends Model {
     }
 
     /**
-     * Заметки про байк
+     * Заправки
+     *
+     * @return HasMany
+     */
+    public function gasoline(): HasMany
+    {
+        return $this->hasMany(Gas::class, 'car_id', 'car_id')
+            ->orderByDesc('created_at');
+    }
+
+    /**
+     * Заметки
      *
      * @return HasMany
      */
@@ -95,9 +106,22 @@ class Car extends Model {
      *
      * @return int
      */
-    public function getCashedAttribute(): int
+    public function getServiceExpensedAttribute(): int
     {
         return Service::where('car_id', $this->car_id)
+            ->get()
+            ->pluck('price')
+            ->sum() ?: 0;
+    }
+
+    /**
+     * Сразу же просчитаем сколько потрачено на топливо
+     *
+     * @return int
+     */
+    public function getFuelExpensedAttribute(): int
+    {
+        return Gas::where('car_id', $this->car_id)
             ->get()
             ->pluck('price')
             ->sum() ?: 0;
@@ -110,7 +134,12 @@ class Car extends Model {
      */
     public function getMinMileageAttribute(): int
     {
-        return min($this->collectAllMileages()) ?: 0;
+        $mileage = $this->collectAllMileages();
+        if (count($mileage) < 1) {
+            return 0;
+        }
+
+        return min($mileage) ?: 0;
     }
 
     /**
@@ -120,7 +149,12 @@ class Car extends Model {
      */
     public function getMaxMileageAttribute(): int
     {
-        return max($this->collectAllMileages()) ?: 0;
+        $mileage = $this->collectAllMileages();
+        if (count($mileage) < 1) {
+            return 0;
+        }
+
+        return max($mileage) ?: 0;
     }
 
     /**
@@ -141,7 +175,19 @@ class Car extends Model {
      */
     public function getKmPriceAttribute(): float
     {
-        return round($this->getCashedAttribute() / max($this->getCarMileageAttribute(), 1), 2);
+        return round(($this->getServiceExpensedAttribute() + $this->getFuelExpensedAttribute()) / max($this->getCarMileageAttribute(), 1), 2);
+    }
+
+    /**
+     * Заправки
+     *
+     * @return array
+     */
+    public function getFuelExpensesAttribute(): array
+    {
+        return Gas::where('car_id', $this->car_id)
+            ->get()
+            ->toArray();
     }
 
 
@@ -162,6 +208,18 @@ class Car extends Model {
                 );
         }
 
+        if (!is_null($this->gasoline())) {
+            $gas_mileage = array_filter(
+                array_map(function ($e) {
+                    return $e['mileage'];
+                }, $this->gasoline()
+                    ->get()
+                    ->toArray()), function($e) {
+                return !is_null($e);
+            }
+            );
+        }
+
         if (!is_null($this->notes())) {
             $notes_mileage = array_filter(
                 array_map(function ($e) {
@@ -174,7 +232,7 @@ class Car extends Model {
                 );
         }
 
-        return array_unique(array_merge($works_mileage ?: [], $notes_mileage ?: []));
+        return array_unique(array_merge($works_mileage ?: [], $gas_mileage ?: [], $notes_mileage ?: []));
     }
 
 

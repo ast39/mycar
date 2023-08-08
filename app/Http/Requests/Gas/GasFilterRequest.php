@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Note;
+namespace App\Http\Requests\Gas;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class NoteUpdateRequest extends FormRequest
+class GasFilterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,9 @@ class NoteUpdateRequest extends FormRequest
     {
         return [
 
-            'car_id'     => 'integer|nullable',
-            'title'      => 'string|nullable',
-            'note_date'  => 'date|nullable',
-            'additional' => 'string|nullable',
-            'mileage'    => 'integer|nullable',
+            'period_from' => 'nullable|date',
+            'period_to'   => 'nullable|date',
+            'car'         => 'nullable|integer',
         ];
     }
 }

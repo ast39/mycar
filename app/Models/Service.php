@@ -36,7 +36,7 @@ class Service extends Model {
     }
 
     /**
-     * Байк
+     * Машина
      *
      * @return BelongsTo
      */

@@ -10,33 +10,33 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card bg-primary text-white">
 
                     <div class="card-header">{{ __('Заметка') }}</div>
 
-                    <div class="card-body">
+                    <div class="card-body bg-light">
 
-                        <table class="table table-striped table-borderless">
+                        <table class="table table-borderless">
                             <tbody>
-                                <tr>
-                                    <th scope="row">{{ __('Автомобиль') }}</th>
-                                    <td><a class="text-primary" href="{{ route('car.show', $note->car_id) }}">{{ Helper::carName($note->car) }}</a></td>
+                                <tr class="border-bottom">
+                                    <th class="text-start">{{ __('Автомобиль') }}</th>
+                                    <td class="text-end"><a class="text-primary" href="{{ route('car.show', $note->car_id) }}">{{ Helper::carName($note->car) }}</a></td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">{{ __('Заголовок') }}</th>
-                                    <td>{{ $note->title }}</td>
+                                <tr class="border-bottom">
+                                    <th class="text-start">{{ __('Заголовок') }}</th>
+                                    <td class="text-end">{{ $note->title }}</td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">{{ __('Описание') }}</th>
-                                    <td>{{ $note->additional }}</td>
+                                <tr class="border-bottom">
+                                    <th class="text-start">{{ __('Описание') }}</th>
+                                    <td class="text-end">{{ $note->additional }}</td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">{{ __('Пробег') }}</th>
-                                    <td>{{ Helper::mileage($note->mileage) }}</td>
+                                <tr class="border-bottom">
+                                    <th class="text-start">{{ __('Пробег') }}</th>
+                                    <td class="text-end">{{ Helper::mileage($note->mileage) }}</td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">{{ __('Дата размещения') }}</th>
-                                    <td>{{ date('d.m.Y', $note->created_at) }}</a></td>
+                                <tr class="border-bottom">
+                                    <th class="text-start">{{ __('Дата размещения') }}</th>
+                                    <td class="text-end">{{ date('d.m.Y', $note->created_at) }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -48,7 +48,8 @@
                             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                                 <a href="{{ route('note.index') }}" class="btn btn-secondary me-1 rounded">Назад</a>
                                 <a href="{{ route('note.edit', $note->note_id) }}" class="btn btn-warning me-1 rounded">Изменить</a>
-                                <button type="submit" title="Delete" onclick="return confirm('Вы уверены, что хотите удалить заметку?')" class="btn btn-danger rounded">Удалить</button>
+                                <button type="submit" title="Delete" onclick="return confirm('Вы уверены, что хотите удалить заметку?')" class="btn btn-danger me-1 rounded">Удалить</button>
+                                <a href="{{ route('note.create') }}" class="btn btn-primary rounded">Добавить заметку</a>
                             </div>
                         </form>
                     </div>

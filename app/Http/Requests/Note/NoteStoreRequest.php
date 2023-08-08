@@ -26,6 +26,7 @@ class NoteStoreRequest extends FormRequest
 
             'car_id'     => 'integer|required',
             'title'      => 'string|required',
+            'note_date'  => 'date|nullable',
             'additional' => 'string|required',
             'mileage'    => 'integer|nullable',
         ];

@@ -78,7 +78,7 @@ class Cars extends Controller {
      */
     public function show(int $id): View
     {
-        $car = Car::with(['owner', 'works', 'catalog', 'notes'])
+        $car = Car::with(['owner', 'works', 'catalog', 'gasoline', 'notes'])
             ->where('owner_id', Auth::id())
             ->findOrFail($id);
 

@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Enums\WorkStatusEnum;
 use App\Models\Car;
 use App\Models\Article;
-use App\Models\CarMark;
 use App\Models\Note;
 use App\Models\Service;
 use App\Models\User;
